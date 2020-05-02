@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.11.1)  2 MAY 2020 13:41
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.11.1)  2 MAY 2020 14:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -927,7 +927,7 @@ Package: titletoc 2011/12/15 v1.6 TOC entries
 Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 169.
 
 Package hyperref Info: Option `colorlinks' set `false' on input line 194.
-Package hyperref Info: Option `colorlinks' set `true' on input line 693.
+Package hyperref Info: Option `colorlinks' set `true' on input line 694.
 )
 (c:/texlive/2019/texmf-dist/tex/latex/cjk/texinput/CJKnumb.sty
 Package: CJKnumb 2015/04/18 4.8.4
@@ -1467,11 +1467,11 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 209.
  ) 
 Here is how much of TeX's memory you used:
- 29720 strings out of 492922
- 583718 string characters out of 6136751
- 810165 words of memory out of 5000000
- 33423 multiletter control sequences out of 15000+600000
- 632567 words of font info for 185 fonts, out of 8000000 for 9000
+ 29717 strings out of 492922
+ 583537 string characters out of 6136751
+ 810121 words of memory out of 5000000
+ 33421 multiletter control sequences out of 15000+600000
+ 632559 words of font info for 184 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  63i,11n,77p,9127b,668s stack positions out of 5000i,500n,10000p,200000b,80000s
 

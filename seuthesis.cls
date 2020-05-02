@@ -340,6 +340,7 @@ BoldItalicFont=timesbi.ttf
   \else\fi
   \englishcover % 英文封面
   \thispagestyle{empty}
+\vspace{1.5in}
   \seudeclare % 独创性和使用授权声明
   \frontmatter % 开始正文之前的部分
   \pagestyle{seufrontstyle}\clearpage
