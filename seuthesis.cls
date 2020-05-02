@@ -174,9 +174,9 @@ BoldItalicFont=timesbi.ttf
 
 \setlength{\parskip}{0pt}% 段距
 \newcommand{\mainlineskip}{1.3}% 主行距1.3
-\titlespacing{\section}{0pt}{0.5ex plus .05ex minus .01ex}{1.9ex plus .04ex} % 标题间距
-\titlespacing{\subsection}{0pt}{0.5ex plus .05ex minus .01ex}{2ex plus .04ex}
-\titlespacing{\subsubsection}{0pt}{0.5ex plus .05ex minus .01ex}{1ex plus .01ex}
+\titlespacing{\section}{0pt}{0.5ex plus .05ex minus .01ex}{0.5ex plus .04ex} % 标题间距
+\titlespacing{\subsection}{0pt}{1.5ex plus .05ex minus .01ex}{0.5ex plus .04ex}
+\titlespacing{\subsubsection}{0pt}{1.5ex plus .05ex minus .01ex}{0.5ex plus .01ex}
 \titleformat*{\subsection}{\song}
 
 %my change
@@ -340,7 +340,7 @@ BoldItalicFont=timesbi.ttf
   \else\fi
   \englishcover % 英文封面
   \thispagestyle{empty}
-\vspace{1.5in}
+  \vspace{1.5in}
   \seudeclare % 独创性和使用授权声明
   \frontmatter % 开始正文之前的部分
   \pagestyle{seufrontstyle}\clearpage
