@@ -12,10 +12,10 @@
 \contentsline {section}{\numberline {1.4}引用论文}{1}{section.1.4}% 
 \contentsline {chapter}{\numberline {2}研究内容}{4}{chapter.2}% 
 \contentsline {section}{\numberline {2.1}本章小结}{4}{section.2.1}% 
-\contentsline {chapter}{参考文献}{5}{chapter*.9}% 
+\contentsline {chapter}{参考文献}{5}{chapter*.7}% 
 \ttl@change@i {\@ne }{chapter}{0pt}{\vspace {.5\baselineskip }\normalfont \bfseries }{附录 \thecontentslabel \quad }{}{\hspace {.5em}\titlerule *[10pt]{$\cdot $}\contentspage }\relax 
 \ttl@change@v {chapter}{}{}{}\relax 
 \contentsline {chapter}{\numberline {A}{\LaTeX }实验}{6}{appendix.A}% 
 \contentsline {chapter}{\numberline {B}MATLAB实验}{7}{appendix.B}% 
-\contentsline {chapter}{致\hspace *{2em}谢}{8}{section*.10}% 
+\contentsline {chapter}{致\hspace *{2em}谢}{8}{section*.8}% 
 \contentsfinish 
