@@ -44,7 +44,7 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{scrbook}}
 \ProcessOptions
 %\LoadClass[a4paper,captions=tableheading]{scrbook}
-\LoadClass[a4paper,10.5pt,tablecaptionabove]{scrbook}
+\LoadClass[a4paper,tablecaptionabove]{scrbook}
 \let\todayeng\today
 
 % my change
@@ -54,6 +54,7 @@
 \RequirePackage{ifthen}
 \RequirePackage{xltxtra}
 \RequirePackage{graphicx}
+\RequirePackage{setspace}
 \RequirePackage[dvipsnames]{xcolor}
 \RequirePackage{indentfirst}
 \RequirePackage{makeidx} % 索引
@@ -85,6 +86,7 @@
     \setlength{\parindent}{2em}
     }
 
+\AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{seunoheadstyle}}}
 
 % 修改中文字体族，增加黑体
 \setCJKmainfont[
@@ -126,17 +128,16 @@ BoldItalicFont=timesbi.ttf
 \newcommand{\qihao}{\fontsize{5.5pt}{6.5pt}\selectfont}
 
 
-  \renewcommand\frontmatter{%
+\renewcommand\frontmatter{%
   \ifstoneside\clearpage\else\cleardoublepage\fi
-
   \@mainmatterfalse
   \pagenumbering{Roman}
-  \pagestyle{empty}}
+  \pagestyle{seunoheadstyle}}
 \renewcommand\mainmatter{%
   \ifstoneside\clearpage\else\cleardoublepage\fi
   \@mainmattertrue
   \pagenumbering{arabic}
-  \pagestyle{plain}}
+  \pagestyle{seustyle}}
 \renewcommand\backmatter{%
   \ifstoneside\clearpage\else\cleardoublepage\fi
   \@mainmattertrue}
@@ -169,19 +170,16 @@ BoldItalicFont=timesbi.ttf
 \hypersetup{bookmarksnumbered=true}%书签中章节编号
 \defaultfontfeatures{Mapping=tex-text} % --- as em-dash
 
-
-
-
 \setlength{\parskip}{0pt}% 段距
-\newcommand{\mainlineskip}{1.3}% 主行距1.3
+\newcommand{\mainlineskip}{1.5}% 主行距1.5
+\titleformat{\chapter}[display]   
+{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}   
+\titlespacing*{\chapter}{0pt}{-20pt}{40pt}
 \titlespacing{\section}{0pt}{0.5ex plus .05ex minus .01ex}{0.5ex plus .04ex} % 标题间距
 \titlespacing{\subsection}{0pt}{1.5ex plus .05ex minus .01ex}{0.5ex plus .04ex}
 \titlespacing{\subsubsection}{0pt}{1.5ex plus .05ex minus .01ex}{0.5ex plus .01ex}
-\titleformat*{\subsection}{\song}
 
 %my change
-
-
 \newcommand{\linespacing}[1]{\linespread{#1}\selectfont}% 行距命令
 \newcommand{\stcleardp}{%
   \ifstoneside
@@ -204,19 +202,23 @@ BoldItalicFont=timesbi.ttf
   urlcolor=magenta
 }
 \newpagestyle{seustyle}{
-  \sethead[][{\song{}\xiaowuhao{}东南大学本科毕业设计（论文）}][] 
-  {}{{\song{}\xiaowuhao{}东南大学本科毕业设计（论文）}}{} 
-  \setfoot{}{\thepage}{}
+  \sethead[][{\song{}\xiaowuhao{}东南大学本科毕业设计（论文）}][]
+  %[\song{}\xiaowuhao{}第\thepage 页] % 偶数页
+  {}{{\song{}\xiaowuhao{}东南大学本科毕业设计（论文）}}{}
+  %{\song{}\xiaowuhao{}第\thepage 页} % 奇数页
   \headrule
+  \setfoot[][\thepage][]{}{\thepage}{}
+}
+\newpagestyle{seunoheadstyle}{
+  \sethead[][][]
+  {}{}{}
+  \setfoot[][\thepage][]{}{\thepage}{}
 }
 \newpagestyle{seufrontstyle}{
-  \pagestyle{seunolabelstyle}
-}
-\newpagestyle{seunolabelstyle}{
-  \setfoot{}{}{}
+  \pagestyle{seunoheadstyle}
 }
 \renewpagestyle{plain}{
-  \pagestyle{seunolabelstyle}
+  \pagestyle{seustyle}
 }
 \renewcommand{\author}[2]{
   \def\@author{#1}
@@ -323,10 +325,15 @@ BoldItalicFont=timesbi.ttf
   \chinesecover
 
   \renewcommand*\frontmatter{%
-    \if@twoside\cleardoubleoddpage\else\clearpage\fi
-    \@mainmatterfalse\pagenumbering{Roman}% 大写罗马字母
-  }
-
+  \if@twoside
+  \cleardoubleoddpage
+  \else
+  \clearpage
+  \fi
+  \@mainmatterfalse
+  \pagenumbering{Roman}% 大写罗马字母
+  \pagestyle{seunoheadstyle}
+}
   \ifbachelordegree
   \ifstoneside\clearpage\else\cleardoublepage\fi
   \seudeclare
@@ -347,7 +354,6 @@ BoldItalicFont=timesbi.ttf
   S\hspace{-0.3ex}\raisebox{-0.5ex}{E}\hspace{-0.3ex}U\hspace{0.1em}%
   \textsc{Thesis}
 }
-
 \let\orig@emph=\emph
 \renewcommand{\emph}[1]{{\normalfont\slshape #1}}
 
@@ -532,9 +538,9 @@ BoldItalicFont=timesbi.ttf
       
       % my change
       {\xiaoerhao\hei\titlepre}
-      {\erhao\hei \parbox[t]{16em}{\fs\uline{\hfill \@title \hfill}}}\\
-    \song
-
+      {\erhao\song \parbox[t]{18em}{\fs\uline{\hfill \@title \hfill}}}\\
+    
+      \song
       \vspace*{70pt}
 
       \renewcommand{\arraystretch}{1.1}
@@ -613,99 +619,62 @@ BoldItalicFont=timesbi.ttf
   \addcontentsline{toc}{chapter}{\@abstracttitletoc}
   \ifbachelordegree
   \renewcommand{\newtitleline}{\\}
-  %\chapter*{\@title}
 
   \vspace*{10pt}
-%  \begin{center}
-%    \xiaoerhao \hei\@title
-%  \end{center}
-
-%  \begin{flushright}
-%    \begin{tabular}[h]{ll}
-%      \@studentid & \kai\@author \\
-%      \advisorpre & \kai\@advisorname \\
-%    \end{tabular}
-%  \end{flushright}
-  %\vspace*{30pt}
-
   \begin{center}
-    \sanhao \hei\textbf{\@abstracttitle}
+    \sanhao \hei \textbf{\@abstracttitle}
   \end{center}
-  %\vspace*{30pt}
-
   \par
-  \else
-  \chapter*{\@abstracttitle}
-  \fi
   \song
-  \ifbachelordegree
   \xiaosihao
-  \else
-  \wuhao
-  \fi
 }{
+  \song
+  \xiaosihao
   \\[1\baselineskip]
-  \textbf{关键词：} \@keywords
+  关键词：\@keywords
 }
 \newenvironment{englishabstract}[1]
 {
   \newcommand{\@keywords}{#1}
   \stcleardp
   \phantomsection
-  \addcontentsline{toc}{chapter}{Abstract}
+  \addcontentsline{toc}{chapter}{ABSTRACT}
   \ifbachelordegree
 
   \vspace*{10pt}
-  %\begin{center}
-  %  \xiaoerhao \textbf{\@titleeng}
-  %\end{center}
-
-%  \begin{flushright}
-%    \begin{tabular}[h]{ll}
-%      \@studentid & \@authoreng \\
-%      Advisor & \@advisornameeng \\
-%    \end{tabular}
-%  \end{flushright}
-
+ 
   \begin{center}
-    {\xiaoerhao \textbf{Abstract}}
+    {\sanhao \textbf{ABSTRACT}}
   \end{center}
+
   \par
-  \else
-  \chapter*{Abstract}
-  \fi
   \song
-  \ifbachelordegree
   \xiaosihao
-  \else
-  \wuhao
-  \fi
 }{
+  \song
+  \xiaosihao
   \\[1\baselineskip]
-  \textbf{KEY WORDS:} \@keywords
+  KEY WORDS: \@keywords
 }
 
 \hypersetup{
-colorlinks=true,
-linkcolor=black
+  colorlinks=true,
+  linkcolor=black
 }
 
 \let\tableofcontents@orig=\tableofcontents
-
-
 \renewcommand{\tableofcontents}
 {
-  \stcleardp
-  {\linespacing{1.15}%
+  \stcleardp 
+  {
+  \linespacing{1.15}%
   \song\xiaosihao%
   \phantomsection
-  \pagestyle{seunolabelstyle}
+  \addcontentsline{toc}{chapter}{目\hspace*{2em}录}
   \tableofcontents@orig \par
-  \clearpage} %目录部分字体可采用小四号宋体。
-
-  \renewpagestyle{plain}{\pagestyle{seustyle}}
+  \clearpage
+  } %目录部分字体可采用小四号宋体。
 }
-
 \newenvironment{terminology}[1][\@terminologytitle]
 {
   \stcleardp
@@ -716,6 +685,9 @@ linkcolor=black
 }{
   \par
 }
+
+\renewcommand{\thefigure}{\thechapter{}-\arabic{figure}}
+
 \newenvironment{Main}
 {
   \mainmatter % 开始正文部分
@@ -724,7 +696,6 @@ linkcolor=black
   \par
   \backmatter % 开始正文之后的部分
 }
-
 \renewcommand{\textfraction}{0.07}
 \renewcommand{\topfraction}{0.9}
 \renewcommand{\bottomfraction}{0.8}
@@ -746,7 +717,18 @@ linkcolor=black
   \pagestyle{seustyle}\clearpage % 使参考文献使用 seunolabel 页面样式
   \pagestyle{seufrontstyle}} % 恢复原有样式给后续部分
 
-
+\newenvironment{Acknowledgement}[1][\@acknowledgementtitle]
+  {%
+    \stcleardp
+    \phantomsection
+    \addcontentsline{toc}{chapter}{\@acknowledgementtitletoc}
+    \chapter*{#1}
+    \begin{spacing}{1.5}
+      \song
+      \xiaosihao
+  }{
+    \end{spacing}
+  }
 \newenvironment{Appendix}
 {%
   \pagestyle{seustyle}
@@ -756,9 +738,6 @@ linkcolor=black
 }{\@mainmatterfalse\par
   \thispagestyle{seustyle}\clearpage
 }
-
-
-
 \newenvironment{Resume}[1][\@resumetitle]
 {%
   \stcleardp
@@ -766,15 +745,6 @@ linkcolor=black
   \addcontentsline{toc}{chapter}{\@resumetitletoc}
   \chapter*{#1}
   \song\wuhao
-}{\par}
-
-\newenvironment{Acknowledgement}[1][\@acknowledgementtitle]
-{%
-  \stcleardp
-  \phantomsection
-  \addcontentsline{toc}{chapter}{\@acknowledgementtitletoc}
-  \chapter*{#1}
-  \song\xiaosihao %my change
 }{\par}
 \newcommand{\backcover}{
   \pagestyle{empty}
