@@ -213,10 +213,7 @@ BoldItalicFont=timesbi.ttf
   \pagestyle{seunolabelstyle}
 }
 \newpagestyle{seunolabelstyle}{
-  \sethead[][{\song{}\xiaowuhao{}东南大学本科毕业设计（论文）}][]
-  {}{{\song{}\xiaowuhao{}东南大学本科毕业设计（论文）}}{}
   \setfoot{}{}{}
-  \headrule
 }
 \renewpagestyle{plain}{
   \pagestyle{seunolabelstyle}
