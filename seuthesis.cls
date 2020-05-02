@@ -538,7 +538,7 @@ BoldItalicFont=timesbi.ttf
       
       % my change
       {\xiaoerhao\hei\titlepre}
-      {\erhao\song \parbox[t]{18em}{\fs\uline{\hfill \@title \hfill}}}\\
+      {\erhao\song \parbox[t]{16em}{\fs\uline{\hfill \@title \hfill}}}\\
     
       \song
       \vspace*{70pt}
