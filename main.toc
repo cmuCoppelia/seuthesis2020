@@ -1,0 +1,19 @@
+\contentsline {chapter}{摘要}{I}{section*.1}% 
+\contentsline {chapter}{Abstract}{II}{section*.2}% 
+\contentsline {chapter}{\numberline {1}前言}{1}{chapter.1}% 
+\contentsline {section}{\numberline {1.1}数学公式}{1}{section.1.1}% 
+\contentsline {subsection}{\numberline {1.1.1}简单的数学公式}{1}{subsection.1.1.1}% 
+\contentsline {subsection}{\numberline {1.1.2}带自动编号的公式}{1}{subsection.1.1.2}% 
+\contentsline {subsection}{\numberline {1.1.3}带等号对齐的公式}{1}{subsection.1.1.3}% 
+\contentsline {section}{\numberline {1.2}伪代码}{1}{section.1.2}% 
+\contentsline {section}{\numberline {1.3}插入图片}{1}{section.1.3}% 
+\contentsline {section}{\numberline {1.4}引用论文}{1}{section.1.4}% 
+\contentsline {chapter}{\numberline {2}研究内容}{4}{chapter.2}% 
+\contentsline {section}{\numberline {2.1}本章小结}{4}{section.2.1}% 
+\contentsline {chapter}{参考文献}{5}{chapter*.7}% 
+\ttl@change@i {\@ne }{chapter}{0pt}{\vspace {.5\baselineskip }\normalfont \bfseries }{附录 \thecontentslabel \quad }{}{\hspace {.5em}\titlerule *[10pt]{$\cdot $}\contentspage }\relax 
+\ttl@change@v {chapter}{}{}{}\relax 
+\contentsline {chapter}{\numberline {A}latex实验}{6}{appendix.A}% 
+\contentsline {chapter}{\numberline {B}matlab实验}{7}{appendix.B}% 
+\contentsline {chapter}{致\hskip 1em\relax 谢}{8}{section*.8}% 
+\contentsfinish 
