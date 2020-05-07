@@ -1,6 +1,5 @@
-% BibTeX standard bibliography style `thuthesis.bst' derived from `unsrt'
-% This file is part of `thuthesis' package.
-
+% BibTeX standard bibliography style `seuthesis.bst' derived from `unsrt' and 'thuthesis'
+% This file is part of `seuthesis' package.
 ENTRY
   { address
     author
@@ -171,29 +170,29 @@ FUNCTION {output.bibitem}
   before.all 'output.state :=
 }
 
-FUNCTION {fin.entry}
-{ duplicate$ empty$
-    'pop$
-    'write$
-  if$
-  newline$
-  "\thudot" write$
-  newline$
-}
+%FUNCTION {fin.entry}
+%{ duplicate$ empty$
+%    'pop$
+%    'write$
+%  if$
+%  newline$
+%  "\thudot" write$
+%    newline$
+%}
 
-% FUNCTION {fin.entry}
-% { add.period$
-%   write$
-%   %remove.dots
-%   newline$
-% }
+ FUNCTION {fin.entry}
+ { add.period$
+   write$
+   %remove.dots
+   newline$
+ }
 
 % FUNCTION {fin.entry}
 % { duplicate$ empty$
 %     'pop$
 %     'write$
-%   if$
-%   newline$
+%   if$ 
+%  newline$
 % }
 
 FUNCTION {new.block}
@@ -765,6 +764,14 @@ FUNCTION {format.title.type}
   if$
 }
 
+% 我加的
+FUNCTION {book.type}
+{ lang empty$
+{ "[M]" }
+{ "\thumasterbib" }
+if$
+}
+
 FUNCTION {book}
 { output.bibitem
   author empty$
@@ -777,7 +784,7 @@ FUNCTION {book}
     }
   if$
   new.block
-  format.btitle "title" output.check
+  format.btitle remove.dots book.type * output
   crossref missing$
     { format.bvolume output
       new.block
@@ -910,11 +917,18 @@ FUNCTION {incollection}
   fin.entry
 }
 
+FUNCTION {inproceedings.type}
+{ lang empty$
+{ "[C]" }
+{ "\thumasterbib" }
+if$
+}
+
 FUNCTION {inproceedings}
 { output.bibitem
   format.authors "author" output.check
   new.block
-  format.title "title" output.check
+  format.title remove.dots inproceedings.type * output
   new.block
   crossref missing$
     { format.in.ed.booktitle "booktitle" output.check
