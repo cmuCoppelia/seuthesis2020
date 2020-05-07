@@ -708,7 +708,7 @@ BoldItalicFont=timesbi.ttf
 % my change
 \newif\ifthu@bachelor
 \def\thudot{\ifthu@bachelor\else\unskip.\fi}
-\bibliographystyle{thuthesis}
+\bibliographystyle{seuthesis}
 % my change
 %\renewcommand\@biblabel[1]{#1}  % Reference list option change from [1] to 1
 \let\orig@bibliography=\bibliography
